@@ -12,13 +12,13 @@ int run_monty(FILE *script_fd);
  */
 void free_tokens(void)
 {
-	size_t i = 0;
+	size_t index = 0;
 
 	if (op_toks == NULL)
 		return;
 
-	for (i = 0; op_toks[i]; i++)
-		free(op_toks[i]);
+	for (index = 0; op_toks[index]; index++)
+		free(op_toks[index]);
 
 	free(op_toks);
 }
@@ -30,11 +30,11 @@ void free_tokens(void)
  */
 unsigned int token_arr_len(void)
 {
-	unsigned int toks_len = 0;
+	unsigned int token_length = 0;
 
-	while (op_toks[toks_len])
-		toks_len++;
-	return (toks_len);
+	while (op_toks[token_length])
+		token_length++;
+	return (token_length);
 }
 
 /**
@@ -91,12 +91,12 @@ void (*get_op_func(char *opcode))(stack_t**, unsigned int)
 		{"queue", monty_queue},
 		{NULL, NULL}
 	};
-	int i;
+	int index;
 
-	for (i = 0; op_funcs[i].opcode; i++)
+	for (index = 0; op_funcs[index].opcode; index++)
 	{
-		if (strcmp(opcode, op_funcs[i].opcode) == 0)
-			return (op_funcs[i].f);
+		if (strcmp(opcode, op_funcs[index].opcode) == 0)
+			return (op_funcs[index].f);
 	}
 
 	return (NULL);
