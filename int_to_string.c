@@ -57,14 +57,14 @@ unsigned int _abs(int i)
  */
 int get_numbase_len(unsigned int num, unsigned int base)
 {
-	int len = 1; /* all numbers contain atleast one digit */
+	int length = 1; /* all numbers contain atleast one digit */
 
 	while (num > base - 1)
 	{
-		len++;
+		length++;
 		num /= base;
 	}
-	return (len);
+	return (length);
 }
 
 /**
